@@ -1,0 +1,52 @@
+<article *ngIf="sign">
+  <header><h2>Add Sign</h2></header>
+
+  <div class="row">
+    <div class="col-4 p-2">
+      <div>
+        <label for="color">Color:</label>
+        <input id="color" name="color" [(ngModel)]="sign.color"/>
+      </div>
+    </div>
+  </div>
+
+  <form class="container" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" name="name" [(ngModel)]="sign.name"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="shape">Shape:</label>
+          <input id="shape" name="shape" [(ngModel)]="sign.shape"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <fieldset *ngIf="signTypes">
+          <legend>Signtype:</legend>
+          <div *ngFor="let signtype of signTypes.signTypes">
+            <label>
+              <input type="radio" name="sign" [(ngModel)]="sign.signType" [value]="signtype.id"/>
+              {{signtype.name}}
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2 p-2">
+        <button type="submit">Update</button>
+      </div>
+    </div>
+  </form>
+</article>

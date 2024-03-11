@@ -1,0 +1,30 @@
+<header>
+  <h2>Sign List</h2>
+</header>
+
+<a [routerLink]="['/signs', 'add']">Add Sign</a>
+
+<table *ngIf="signs">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let sign of signs.signs">
+    <td>{{sign.name}}</td>
+    <td>
+      <a [routerLink]="['/signs', sign.id]">View</a>
+    </td>
+    <td>
+      <a [routerLink]="['/signs', sign.id, 'edit']">Edit</a>
+    </td>
+    <td>
+      <button (click)="onDelete(sign)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+<div *ngIf="signType">
+  <header>
+    <h2>{{ signType.name }}</h2>
+  </header>
+
+  <p>
+    <b>Code Prefix: </b>
+    <span>{{ signType.codePrefix }}</span>
+  </p>
+
+  <header>
+    <h3>Signs:</h3>
+  </header>
+
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sign of signs?.signs">
+      <td>{{sign.name}}</td>
+      <td>
+        <button (click)="onDelete(sign)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</div>
